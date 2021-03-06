@@ -5,6 +5,16 @@ const propietario = document.getElementById('propietario')
 const form = document.getElementById('form')
 const btnGuardar = document.getElementById('btn-guardar')
 const indice = document.getElementById('indice')
+const modal_content = document.getElementById('modal-content')
+const cerrar  = document.querySelectorAll(".close")[0];
+
+cerrar.addEventListener('click', () => {
+  modal_content.classList.remove('show');
+});
+
+
+
+
 
 let mascotas = [
     {
@@ -68,7 +78,6 @@ function editar(index) {
     propietario.value = mascota.propietario;
     tipo.value = mascota.tipo;
     indice.value = index;
-    
   }
 }
 
