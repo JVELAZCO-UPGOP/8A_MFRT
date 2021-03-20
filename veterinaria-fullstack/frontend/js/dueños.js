@@ -38,8 +38,8 @@ function listarDueños(){
     </td>
   </tr>`).join("");
   listaDueños.innerHTML = htmlDueños;
-  Array.from(document.getElementsByClassName('editar')).forEach((botonEditar, index)=>botonEditar.onclick = editar(index));
-  Array.from(document.getElementsByClassName('eliminar')).forEach((botonEliminar, index)=>botonEliminar.onclick = eliminar(index));
+  Array.from(document.getElementsByClassName('editar')).forEach((botonEditar, index)=>(botonEditar.onclick = editar(index)));
+  Array.from(document.getElementsByClassName('eliminar')).forEach((botonEliminar, index)=>(botonEliminar.onclick = eliminar(index)));
 
 }
 

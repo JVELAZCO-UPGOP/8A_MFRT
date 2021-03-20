@@ -27,7 +27,7 @@ async function listarMascotas() {
       <th scope="row">${index}</th>
       <td>${mascota.tipo}</td>
       <td>${mascota.nombre}</td>
-      <td>${mascota.dueno}</td>
+      <td>${mascota.propietario}</td>
       <td>
           <div class="btn-group" role="group" aria-label="Basic example">
               <button type="button" class="btn btn-info editar"><i class="fas fa-edit"></i></button>
@@ -62,7 +62,7 @@ async function enviarDatos(evento) {
     const datos = {
       tipo: tipo.value,
       nombre: nombre.value,
-      dueno: dueno.value,
+      dueno: propietario.value,
     };
     let method = "POST";
     let urlEnvio = url;
@@ -104,7 +104,7 @@ function editar(index) {
 
 function resetModal() {
   nombre.value = "";
-  dueno.value = "";
+  propietario.value = "";
   tipo.value = "";
   indice.value = "";
   btnGuardar.innerHTML = "Crear";
