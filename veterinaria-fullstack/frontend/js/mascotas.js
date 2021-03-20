@@ -9,9 +9,7 @@ const modal_content = document.getElementById('modal-content')
 const cerrar  = document.querySelectorAll(".close")[0];
 const url = "http://localhost:5000/mascotas";
 
-cerrar.addEventListener('click', () => {
-  modal_content.classList.remove('show');
-});
+
 
 let mascotas = [];
 
