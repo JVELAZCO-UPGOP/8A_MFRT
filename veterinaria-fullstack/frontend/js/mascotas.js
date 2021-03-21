@@ -8,9 +8,6 @@ const indice = document.getElementById('indice')
 const modal_content = document.getElementById('modal-content')
 const cerrar  = document.querySelectorAll(".close")[0];
 const url = "http://localhost:5000/mascotas";
-
-
-
 let mascotas = [];
 
 async function listarMascotas() {
@@ -62,14 +59,13 @@ async function enviarDatos(evento) {
     const datos = {
       tipo: tipo.value,
       nombre: nombre.value,
-      dueno: propietario.value,
+      propietario: propietario.value,
     };
     let method = "POST";
     let urlEnvio = url;
     const accion = btnGuardar.innerHTML;
     if (accion === "Editar") {
       method = "PUT";
-      mascotas[indice.value] = datos;
       urlEnvio = `${url}/${indice.value}`;
     }
     const respuesta = await fetch(urlEnvio, {
@@ -96,7 +92,7 @@ function editar(index) {
     $("#exampleModalCenter").modal("toggle");
     const mascota = mascotas[index];
     nombre.value = mascota.nombre;
-    dueno.value = mascota.dueno;
+    propietario.value = mascota.propietario;
     tipo.value = mascota.tipo;
     indice.value = index;
   };
