@@ -23,8 +23,9 @@ try {
             (consulta, indice) =>
             `<tr>
             <th scope="row">1</th>
-            <td>${consulta.mascota}</td>
-            <td>${consulta.veterinaria}</td>
+            <td>${consulta.mascota.nombre}</td>
+            <td>${consulta.veterinario.nombre} ${consulta.veterinario.apellido}</td>
+            <td>${consulta.diagnostico}</td>
             <td>${consulta.fechaCreacion}</td>
             <td>${consulta.fechaEdicion}</td>
             <td>
