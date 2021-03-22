@@ -13,8 +13,9 @@ module.exports = function consultasHandler({
             });
             }
             const consultasConRelaciones = consultas.map((consulta) => (
-                {...consulta, mascota: mascotas[consulta.mascota],
-                veterinario: veterinarios[consulta.veterinario],
+                {...consulta, 
+                    mascota: {...mascotas[consulta.mascota], id: consulta.mascota },
+                veterinario: {...veterinarios[consulta.veterinario], id: consulta.veterinario},
             }));
             callback(200, consultasConRelaciones);
         },

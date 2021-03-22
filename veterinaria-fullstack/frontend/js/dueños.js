@@ -1,10 +1,10 @@
-const listaDueños = document.getElementById('lista-dueños')
-const nombre = document.getElementById('nombre')
-const documento = document.getElementById('documento')
-const form = document.getElementById('form')
-const btnGuardar = document.getElementById('btn-guardar')
-const indice = document.getElementById('indice')
-const apellido = document.getElementById('apellido')
+const listaDueños = document.getElementById('lista-dueños');
+const nombre = document.getElementById('nombre');
+const documento = document.getElementById('documento');
+const form = document.getElementById('form');
+const btnGuardar = document.getElementById('btn-guardar');
+const indice = document.getElementById('indice');
+const apellido = document.getElementById('apellido');
 const url = "http://localhost:5000/propietarios";
 
 let dueños = [];
@@ -84,7 +84,7 @@ async function enviarDatos(evento) {
 
 function editar(index) {
     return function cuandoCliqueo() {
-        btnGuardar.innerHTML = 'Editar'
+        btnGuardar.innerHTML = 'Editar';
         $('#exampleModalCenter').modal('toggle');
         const dueño = dueños[index];
         indice.value = index;

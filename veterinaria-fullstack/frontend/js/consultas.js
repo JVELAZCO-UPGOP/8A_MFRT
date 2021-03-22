@@ -1,6 +1,10 @@
 const listaConsultas = document.getElementById("lista-consultas");
 const mascota = document.getElementById("mascota");
 const veterinario = document.getElementById("veterinario");
+const historia = document.getElementById("historia");
+const diagnostico = document.getElementById("diagnostico");
+const btnGuardar = document.getElementById('btn-guardar');
+const indice = document.getElementById('indice');
 
 let consultas = [];
 let mascotas = [];
@@ -28,13 +32,16 @@ try {
             <td>${consulta.fechaEdicion}</td>
             <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-info">Editar</button>
+                    <button class="editar" type="button" class="btn btn-info">Editar</button>
                 </div>
             </td>
         </tr>` 
         )
         .join("");
         listaConsultas.innerHTML = htmlConsultas;
+        Array.from(document.getElementsByClassName('editar')).forEach(
+            (botonEditar, index)=>(botonEditar.onclick = editar(index))
+            );
     }
 } catch (error) { 
     throw error;
@@ -86,4 +93,18 @@ try {
     throw error;
 }
 }
+
+function editar(index) {
+    return function cuandoCliqueo() {
+        btnGuardar.innerHTML = 'Editar';
+        $('#exampleModalCenter').modal('toggle');
+        const consulta = consultas[index];
+        indice.value = index;
+        mascota.value = consulta.mascota.id;
+        veterinario.value = consulta.veterinario.id;
+        historia.value = consulta.historia;  
+        diagnostico.value = consulta.diagnostico;  
+    }
+}
+
 listarVeterinarios();
