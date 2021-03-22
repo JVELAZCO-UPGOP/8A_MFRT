@@ -118,25 +118,29 @@ async function enviarDatos(evento) {
     historia: historia.value,
     diagnostico: diagnostico.value,
     };
-    const accion = btnGuardar.innerHTML;
-    let urlEnvio = `${url}/${entidad}`;
-    let method = 'POST';
-    if(accion === "Editar") {
-    urlEnvio += `/${indice.value}`; 
-    method = 'PUT';
+    if (validar(datos) === true){
+        const accion = btnGuardar.innerHTML;
+        let urlEnvio = `${url}/${entidad}`;
+        let method = 'POST';
+        if(accion === "Editar") {
+        urlEnvio += `/${indice.value}`; 
+        method = 'PUT';
+        }
+        const respuesta = await fetch(urlEnvio, {
+        method,
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(datos),
+        mode: "cors",
+        });
+        if (respuesta.ok) {
+        listarConsultas();
+        resetModal();
     }
-    const respuesta = await fetch(urlEnvio, {
-    method,
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(datos),
-    mode: "cors",
-    });
-    if (respuesta.ok) {
-    listarConsultas();
-    resetModal();
-}
+    return;
+    }
+    alert("formulario incompleto");
     } catch (error) {
     throw error;
     }
@@ -150,6 +154,14 @@ function resetModal(){
     diagnostico.value = '';
     btnGuardar.innerHTML = 'Crear';
     $('#exampleModalCenter').modal('toggle');
+}
+
+function validar(datos){
+if (typeof datos !== "object") return false; 
+    for(let llave in datos){
+        if (datos[llave].length === 0) return false;     
+    }
+    return true;
 }
 
 btnGuardar.onclick = enviarDatos;
