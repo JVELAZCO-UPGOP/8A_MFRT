@@ -3,14 +3,14 @@ const mascota = document.getElementById("mascota");
 const veterinario = document.getElementById("veterinario");
 const historia = document.getElementById("historia");
 const diagnostico = document.getElementById("diagnostico");
-const btnGuardar = document.getElementById('btn-guardar');
 const indice = document.getElementById('indice');
+const btnGuardar = document.getElementById('btn-guardar');
+const url = "http://localhost:5000";
 
 let consultas = [];
 let mascotas = [];
 let veterinarios = [];
 
-const url = "http://localhost:5000";
 
 async function listarConsultas(){
     const entidad = "consultas";
@@ -48,7 +48,7 @@ try {
 }
 }
 
-listarConsultas();
+
 
 async function listarMascotas(){
     const entidad = "mascotas";
@@ -60,7 +60,7 @@ try {
     }
     if (respuesta.ok) {
         mascotas.forEach((_mascota, indice) =>{
-            const optionActual = document.createElement('option');
+            const optionActual = document.createElement("option");
             optionActual.innerHTML = _mascota.nombre;
             optionActual.value = indice;
             mascota.appendChild(optionActual);
@@ -71,7 +71,7 @@ try {
 }
 }
 
-listarMascotas();
+
 
 async function listarVeterinarios(){
     const entidad = "veterinarios";
@@ -107,4 +107,52 @@ function editar(index) {
     }
 }
 
+
+async function enviarDatos(evento) {
+    const entidad  = "consultas";
+    evento.preventDefault();
+    try {
+    const datos = {
+    mascota: mascota.value, 
+    veterinario: veterinario.value,
+    historia: historia.value,
+    diagnostico: diagnostico.value,
+    };
+    const accion = btnGuardar.innerHTML;
+    let urlEnvio = `${url}/${entidad}`;
+    let method = 'POST';
+    if(accion === "Editar") {
+    urlEnvio += `/${indice.value}`; 
+    method = 'PUT';
+    }
+    const respuesta = await fetch(urlEnvio, {
+    method,
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(datos),
+    mode: "cors",
+    });
+    if (respuesta.ok) {
+    listarConsultas();
+    resetModal();
+}
+    } catch (error) {
+    throw error;
+    }
+}
+
+function resetModal(){
+    indice.value = '';
+    mascota.value = '';
+    veterinario.value = '';
+    historia.value = '';
+    diagnostico.value = '';
+    btnGuardar.innerHTML = 'Crear';
+    $('#exampleModalCenter').modal('toggle');
+}
+
+btnGuardar.onclick = enviarDatos;
+listarConsultas();
 listarVeterinarios();
+listarMascotas();

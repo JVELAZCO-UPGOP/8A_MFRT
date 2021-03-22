@@ -2,10 +2,10 @@ const listaDueños = document.getElementById('lista-dueños');
 const nombre = document.getElementById('nombre');
 const documento = document.getElementById('documento');
 const form = document.getElementById('form');
-const btnGuardar = document.getElementById('btn-guardar');
 const indice = document.getElementById('indice');
 const apellido = document.getElementById('apellido');
 const url = "http://localhost:5000/propietarios";
+const btnGuardar = document.getElementById('btn-guardar');
 
 let dueños = [];
 
@@ -99,7 +99,7 @@ function resetModal(){
     nombre.value = '';
     apellido.value = '';
     documento.value = '';
-    btnGuardar.innerHTML = 'Crear'
+    btnGuardar.innerHTML = 'Crear';
 }
 
 function eliminar(index){
