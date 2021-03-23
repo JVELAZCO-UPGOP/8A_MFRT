@@ -4,7 +4,7 @@ const documento = document.getElementById('documento');
 const form = document.getElementById('form');
 const indice = document.getElementById('indice');
 const apellido = document.getElementById('apellido');
-const url = "veterinaria-backend-three.vercel.app/propietarios";
+const url = "https://veterinaria-backend-three.vercel.app/propietarios";
 const btnGuardar = document.getElementById('btn-guardar');
 
 let dueños = [];

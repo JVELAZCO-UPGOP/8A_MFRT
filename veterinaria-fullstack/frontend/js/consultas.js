@@ -6,7 +6,7 @@ const diagnostico = document.getElementById("diagnostico");
 const indice = document.getElementById('indice');
 const btnGuardar = document.getElementById('btn-guardar');
 const formulario = document.getElementById("formulario");
-const url = "veterinaria-backend-three.vercel.app/consultas";
+const url = "https://veterinaria-backend-three.vercel.app";
 
 let consultas = [];
 let mascotas = [];

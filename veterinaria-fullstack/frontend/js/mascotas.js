@@ -5,7 +5,7 @@ const propietario = document.getElementById('propietario');
 const form = document.getElementById('form');
 const btnGuardar = document.getElementById('btn-guardar');
 const indice = document.getElementById('indice');
-const url = "veterinaria-backend-three.vercel.app/mascotas";
+const url = "https://veterinaria-backend-three.vercel.app/mascotas";
 let mascotas = [];
 
 async function listarMascotas() {
@@ -64,6 +64,7 @@ async function enviarDatos(evento) {
     const accion = btnGuardar.innerHTML;
     if (accion === "Editar") {
       method = "PUT";
+      mascotas[indice.value] = datos;
       urlEnvio = `${url}/${indice.value}`;
     }
     const respuesta = await fetch(urlEnvio, {
