@@ -165,10 +165,14 @@ function resetModal(){
 
 function validar(datos){
 if (typeof datos !== "object") return false; 
+let respuesta = true;
     for(let llave in datos){
-        if (datos[llave].length === 0) return false;     
+        if (datos[llave].length === 0) {
+            document.getElementById(llave).classList.add('is-invalid');
+            respuesta = false;
+        }    
     }
-    return true;
+    return respuesta;
 }
 
 btnGuardar.onclick = enviarDatos;
