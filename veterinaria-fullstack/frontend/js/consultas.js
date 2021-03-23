@@ -154,12 +154,13 @@ async function enviarDatos(evento) {
 }
 
 function resetModal(){
-    indice.value = '';
-    mascota.value = '';
-    veterinario.value = '';
-    historia.value = '';
-    diagnostico.value = '';
     btnGuardar.innerHTML = 'Crear';
+    [indice,mascota, veterinario, historia, diagnostico,].forEach((inputActual) => {
+        inputActual.value = "";
+        inputActual.classList.remove("is-invalid");
+        inputActual.classList.remove("is-valid");
+    });    
+    $(".alert-warning").hide();
     $('#exampleModalCenter').modal('toggle');
 }
 
@@ -175,6 +176,7 @@ let respuesta = true;
             document.getElementById(llave).classList.add('is-valid');
         }  
     }
+    if (respuesta === true) $(".alert-warning").hide(); 
     return respuesta;
 }
 
