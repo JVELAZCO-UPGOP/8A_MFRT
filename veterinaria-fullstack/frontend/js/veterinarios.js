@@ -5,7 +5,7 @@ const form = document.getElementById('form')
 const btnGuardar = document.getElementById('btn-guardar')
 const indice = document.getElementById('indice')
 const apellido = document.getElementById('apellido')
-const url = "http://localhost:5000/veterinarios";
+const url = "veterinaria-backend-three.vercel.app/veterinarios";
 let veterinarios = [];
 
 

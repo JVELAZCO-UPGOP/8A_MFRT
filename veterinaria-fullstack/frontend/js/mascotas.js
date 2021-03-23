@@ -7,7 +7,7 @@ const btnGuardar = document.getElementById('btn-guardar');
 const indice = document.getElementById('indice');
 const modal_content = document.getElementById('modal-content');
 const cerrar  = document.querySelectorAll(".close")[0];
-const url = "http://localhost:5000/mascotas";
+const url = "veterinaria-backend-three.vercel.app/mascotas";
 let mascotas = [];
 
 async function listarMascotas() {
