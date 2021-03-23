@@ -33,7 +33,7 @@ try {
             <td>${consulta.fechaEdicion}</td>
             <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button class="editar" type="button" class="btn btn-info">Editar</button>
+                    <button type="button" class="btn btn-info editar" ><i class="far fa-edit"></i></button>
                 </div>
             </td>
         </tr>` 
