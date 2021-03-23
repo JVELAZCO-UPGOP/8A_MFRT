@@ -5,14 +5,12 @@ const propietario = document.getElementById('propietario');
 const form = document.getElementById('form');
 const btnGuardar = document.getElementById('btn-guardar');
 const indice = document.getElementById('indice');
-const modal_content = document.getElementById('modal-content');
-const cerrar  = document.querySelectorAll(".close")[0];
 const url = "veterinaria-backend-three.vercel.app/mascotas";
 let mascotas = [];
 
 async function listarMascotas() {
   try {
-    const respuesta = await fetch(url);
+    const respuesta = await fetch(url); 
     const mascotasDelServer = await respuesta.json();
     if (Array.isArray(mascotasDelServer)) {
       mascotas = mascotasDelServer;

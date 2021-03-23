@@ -2,6 +2,7 @@ module.exports = function mascotasHandler(mascotas){
 return {
     get: (data, callback) =>{
         if(typeof data.indice !== "undefined"){
+            console.log("handler mascotas", { data });
             if(mascotas[data.indice]){
                 return callback(200, mascotas[data.indice]);
             }  
@@ -41,6 +42,6 @@ return {
         callback(400, {mensaje: "Indice no enviado"});
     },
 };
-}
+};
 
     
