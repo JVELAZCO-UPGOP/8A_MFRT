@@ -170,7 +170,10 @@ let respuesta = true;
         if (datos[llave].length === 0) {
             document.getElementById(llave).classList.add('is-invalid');
             respuesta = false;
-        }    
+        }  else{
+            document.getElementById(llave).classList.remove('is-invalid');
+            document.getElementById(llave).classList.add('is-valid');
+        }  
     }
     return respuesta;
 }
