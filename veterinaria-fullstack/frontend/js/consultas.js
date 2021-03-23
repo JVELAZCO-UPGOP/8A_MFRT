@@ -45,7 +45,7 @@ try {
     }
 } catch (error) { 
     console.log({ error });
-    $(".alert").show();
+    $(".alert-danger").show();
 }
 }
 
@@ -69,7 +69,7 @@ try {
     }
 } catch (error) { 
     console.log({ error });
-    $(".alert").show();
+    $(".alert-danger").show();
 }
 }
 
@@ -93,7 +93,7 @@ try {
     }
 } catch (error) { 
     console.log({ error });
-    $(".alert").show();
+    $(".alert-danger").show();
 }
 }
 
@@ -143,10 +143,10 @@ async function enviarDatos(evento) {
     }
     return;
     }
-    alert("formulario incompleto");
+    $(".alert-warning").show();
     } catch (error) {
         console.log({ error });
-        $(".alert").show();
+        $(".alert-danger").show();
     }
 }
 
