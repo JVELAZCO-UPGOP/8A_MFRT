@@ -5,6 +5,7 @@ const historia = document.getElementById("historia");
 const diagnostico = document.getElementById("diagnostico");
 const indice = document.getElementById('indice');
 const btnGuardar = document.getElementById('btn-guardar');
+const formulario = document.getElementById("formulario");
 const url = "http://localhost:5000";
 
 let consultas = [];
@@ -141,9 +142,11 @@ async function enviarDatos(evento) {
         listarConsultas();
         resetModal();
     }
+    formulario.classList.add('was-validated');
     return;
     }
     $(".alert-warning").show();
+    //formulario.classList.add('was-validated');
     } catch (error) {
         console.log({ error });
         $(".alert-danger").show();
