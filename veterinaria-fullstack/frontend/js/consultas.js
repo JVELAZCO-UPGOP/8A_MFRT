@@ -44,7 +44,8 @@ try {
             );
     }
 } catch (error) { 
-    throw error;
+    console.log({ error });
+    $(".alert").show();
 }
 }
 
@@ -67,7 +68,8 @@ try {
         });
     }
 } catch (error) { 
-    throw error;
+    console.log({ error });
+    $(".alert").show();
 }
 }
 
@@ -90,7 +92,8 @@ try {
         });
     }
 } catch (error) { 
-    throw error;
+    console.log({ error });
+    $(".alert").show();
 }
 }
 
@@ -142,7 +145,8 @@ async function enviarDatos(evento) {
     }
     alert("formulario incompleto");
     } catch (error) {
-    throw error;
+        console.log({ error });
+        $(".alert").show();
     }
 }
 
