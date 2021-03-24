@@ -19,10 +19,6 @@ module.exports = (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "*");
     res.setHeader(
-        "Access-Control-Request-Methods", 
-        "OPTIONS, GET, PUT, DELETE, POST"
-    );
-    res.setHeader(
         "Access-Control-Allow-Methods", 
         "OPTIONS, GET, PUT, DELETE, POST"
     );
@@ -48,7 +44,7 @@ module.exports = (req, res) => {
     req.on("end", () => {
         buffer += decoder.end();
 
-        if(headers["content-type"] === "aplication/json"){
+        if(headers["content-type"] === "application/json"){
             buffer = JSON.parse(buffer);
         }
     //3.4.3 Revisar si tiene subrutas en este caso el indice del array
@@ -86,7 +82,7 @@ module.exports = (req, res) => {
             res.writeHead(statusCode);
             //Linea en donde realmente ya estamos respondiendo a la aplicacion cliente
             res.end(respuesta);
-        }) 
+        }); 
     }
     });
 };

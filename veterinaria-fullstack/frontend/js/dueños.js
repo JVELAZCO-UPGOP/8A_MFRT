@@ -112,7 +112,6 @@ function eliminar(index){
           });
           if (respuesta.ok) {
             listarDueños();
-            resetModal();
           } 
         } catch (error) {
           console.log({ error });

@@ -1,10 +1,10 @@
-const listaVeterinarios = document.getElementById('lista-veterinarios')
-const nombre = document.getElementById('nombre')
-const documento = document.getElementById('documento')
-const form = document.getElementById('form')
-const btnGuardar = document.getElementById('btn-guardar')
-const indice = document.getElementById('indice')
-const apellido = document.getElementById('apellido')
+const listaVeterinarios = document.getElementById('lista-veterinarios');
+const nombre = document.getElementById('nombre');
+const documento = document.getElementById('documento');
+const form = document.getElementById('form');
+const btnGuardar = document.getElementById('btn-guardar');
+const indice = document.getElementById('indice');
+const apellido = document.getElementById('apellido');
 const url = "https://veterinaria-backend-three.vercel.app/veterinarios";
 let veterinarios = [];
 
@@ -25,20 +25,20 @@ let veterinarios = [];
     <td>${veterinario.apellido}</td>
     <td>
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-info editar" ><i class="far fa-edit"></i></button>
-        <button type="button" class="btn btn-danger eliminar"><i class="fas fa-trash"></i></button>
+        <button type="button" class="btn btn-info editar"><i class="fas fa-edit"></i></button>
+        <button type="button" class="btn btn-danger eliminar"><i class="far fa-trash-alt"></i></button>
       </div>
     </td>
   </tr>`
   )
     .join("");
   listaVeterinarios.innerHTML = htmlVeterinarios;
-  Array.from(document.getElementsByClassName('editar')).forEach(
-    (botonEditar, index)=> (botonEditar.onclick = editar(index))
-    );
-  Array.from(document.getElementsByClassName('eliminar')).forEach(
-    (botonEliminar, index)=> (botonEliminar.onclick = eliminar(index))
-    );
+  Array.from(document.getElementsByClassName("editar")).forEach(
+    (botonEditar, index) => (botonEditar.onclick = editar(index))
+  );
+  Array.from(document.getElementsByClassName("eliminar")).forEach(
+    (botonEliminar, index) => (botonEliminar.onclick = eliminar(index))
+  );
 return;  
 }
 listaVeterinarios.innerHTML = `<tr>
@@ -85,7 +85,7 @@ async function enviarDatos(evento) {
 
 function editar(index) {
     return function cuandoCliqueo() {
-        btnGuardar.innerHTML = 'Editar'
+        btnGuardar.innerHTML = 'Editar';
         $('#exampleModalCenter').modal('toggle');
         const veterinario = veterinarios[index];
         indice.value = index;
@@ -113,7 +113,6 @@ function eliminar(index){
         });
         if (respuesta.ok) {
           listarVeterinarios();
-          resetModal();
         } 
       } catch (error) {
         console.log({ error });
