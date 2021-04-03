@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "./componentes/Nav";
 import ActionsMenu from "./componentes/ActionsMenu";
+import Tabla from "./componentes/Tabla";
 
 function Mascotas() {
     return (
@@ -8,19 +9,7 @@ function Mascotas() {
         <div className="container">    
             <Nav/>
             <ActionsMenu/>
-        <table className="table table-striped table-hover ">
-            <thead className="thead-dark">
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Propietario</th>
-                <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody id="lista-mascotas" >
-            </tbody>
-        </table>
+            <Tabla/>
     </div>
     <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered" role="document">
