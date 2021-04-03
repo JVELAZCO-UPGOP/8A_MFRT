@@ -1,8 +1,8 @@
 import React from "react";
+import "./Nav.css";
 
 function Nav() {
-    return (
-        <div className="container">    
+    return ( 
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <a className="navbar-brand" href="#">Veterinaria</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
