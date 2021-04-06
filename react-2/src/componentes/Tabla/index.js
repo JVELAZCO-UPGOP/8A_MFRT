@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Encabezado from "./Encabezado";
 
 function Tabla(){
     const [mascotas, setMascotas] = useState([
@@ -12,20 +13,12 @@ function Tabla(){
             nombre: "Andy",
             propietario: "Monica",
         },
-    ])
+    ]);
+    const columnas = mascotas.length > 0 ? Object.keys(mascotas[0]) : [];
     return (
         <table className="table table-striped table-hover ">
-            <thead className="thead-dark">
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Propietario</th>
-                <th scope="col"></th>
-                </tr>
-            </thead>
             <tbody id="lista-mascotas" >
-            {""}
+            <Encabezado columnas = {columnas}/>
             {mascotas.map(
             (mascota, index) => <tr>
             <th scope="row">{index}</th>
