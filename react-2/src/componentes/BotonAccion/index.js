@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrashAlt, faEdit} from "@fortawesome/free-solid-svg-icons";
+import "./BotonAccion.css";
 
 function BotonAccion({tipo}){
     return(
