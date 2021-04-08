@@ -10,7 +10,7 @@ function ActionsMenu({cambiarModal = () => {}}){
             <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onClick={cambiarModal}>
             Nueva
             </button>
-            {mostrarAlerta && <Alert/> }
+            {/*mostrarAlerta && <Alert/> */}
             </div>
         </div>
     );

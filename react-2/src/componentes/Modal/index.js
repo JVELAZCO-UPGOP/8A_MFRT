@@ -3,6 +3,20 @@ import ModalHeader from "./ModalHeader";
 import Select from "../Select";
 import "./Modal.css";
 
+const TiposMascota = [
+    {valor:"Perro", etiqueta:"Perro"},
+    {valor:"Gato", etiqueta:"Gato" },
+    {valor:"Pájaro", etiqueta:"Pájaro"},
+    {valor:"Otro", etiqueta:"Otro"},
+    ];
+const propietario =[
+    {valor:"Verito", etiqueta:"Verito"},
+    {valor:"Monica", etiqueta:"Monica" },
+    {valor:"Rafa", etiqueta:"Rafa"},
+    {valor:"Daniel", etiqueta:"Daniel"},
+    {valor:"Vince", etiqueta:"Vince"},
+    ];
+    
 function Modal(){
 return(
     <>
@@ -14,24 +28,17 @@ return(
             <form id="form" >
             <div className="form-row"> 
                 <div className="col">
-            <Select/>
+            <Select options={TiposMascota} nombreCampo= "Tipo animal"/>
                 </div>
             </div>
                 <div className="form-row"> 
                 <div className="col">
                 <input type="text" id="nombre" name="nombre" className="form-control" placeholder="Nombre"/>
                 </div>
-                <div className="col">
-                <select id="propietario" className="form-control">
-                    <option>Dueño</option>
-                    <option>Verito</option>
-                    <option>Monica</option>
-                    <option>Rafa</option>
-                    <option>Daniel</option>
-                    <option>Vince</option>
-                </select>
+                    <div className="col">
+                    <Select options={propietario} nombreCampo= "dueño"/>
+                    </div>
                 </div>
-            </div>
             </form>
         </div>
         <div className="modal-footer">
