@@ -1,16 +1,22 @@
 import React from "react";
 import ModalHeader from "./ModalHeader";
 import Select from "../Select";
+import "./Modal.css";
 
 function Modal(){
 return(
-    <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div className="modal-dialog modal-dialog-centered" role="document">
+    <>
+    <div className="modal" >
+    <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
         <ModalHeader/>
         <div className="modal-body">
             <form id="form" >
+            <div className="form-row"> 
+                <div className="col">
             <Select/>
+                </div>
+            </div>
                 <div className="form-row"> 
                 <div className="col">
                 <input type="text" id="nombre" name="nombre" className="form-control" placeholder="Nombre"/>
@@ -35,6 +41,8 @@ return(
         </div>
     </div>
 </div>
+<div className="modal-backdrop fade show" ></div>
+</>
 );
 }
 export default Modal;
