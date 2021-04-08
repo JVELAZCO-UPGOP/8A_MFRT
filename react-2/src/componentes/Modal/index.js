@@ -2,6 +2,7 @@ import React from "react";
 import ModalHeader from "./ModalHeader";
 import Select from "../Select";
 import "./Modal.css";
+import Input from "../Input";
 
 const TiposMascota = [
     {valor:"Perro", etiqueta:"Perro"},
@@ -33,7 +34,7 @@ return(
             </div>
                 <div className="form-row"> 
                 <div className="col">
-                <input type="text" id="nombre" name="nombre" className="form-control" placeholder="Nombre"/>
+                <Input tipo="text" nombreCampo="nombre"/>
                 </div>
                     <div className="col">
                     <Select options={propietario} nombreCampo= "dueño"/>
