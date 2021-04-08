@@ -1,5 +1,6 @@
 import React from "react";
 import ModalHeader from "./ModalHeader";
+import Select from "../Select";
 
 function Modal(){
 return(
@@ -9,18 +10,7 @@ return(
         <ModalHeader/>
         <div className="modal-body">
             <form id="form" >
-            <input type="hidden" id="indice"/>
-            <div className="form-row">
-                <div className="col">
-                    <select id="tipo" className="form-control">
-                    <option>Tipo animal</option>
-                    <option>Perro</option>
-                    <option>Gato</option>
-                    <option>Pájaro</option>
-                    <option>Otro</option>
-                    </select>
-                </div>
-            </div>
+            <Select/>
                 <div className="form-row"> 
                 <div className="col">
                 <input type="text" id="nombre" name="nombre" className="form-control" placeholder="Nombre"/>
