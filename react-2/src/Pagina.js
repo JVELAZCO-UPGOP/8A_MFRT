@@ -20,11 +20,12 @@ this.setState({mostrarModal: !this.state.mostrarModal})
 
 //el método render siempre debe ir de ultimo
     render (){
+        const {titulo = "Pagina sin titulo"} = this.props;
     return (
         <>
         <div className="container">    
             <Nav/>
-            <ActionsMenu cambiarModal = {this.cambiarModal}/>
+            <ActionsMenu cambiarModal = {this.cambiarModal} titulo={titulo}/>
             <Tabla/>
             {this.state.mostrarModal && <Modal cambiarModal = {this.cambiarModal}/>}
         </div>
