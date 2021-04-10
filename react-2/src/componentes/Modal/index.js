@@ -19,13 +19,13 @@ const propietario =[
     {valor:"Vince", etiqueta:"Vince"},
     ];
     
-function Modal(){
+function Modal({cambiarModal = () =>{} }){
 return(
     <>
     <div className="modal" >
     <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
-        <ModalHeader/>
+        <ModalHeader cambiarModal = {cambiarModal}/>
         <div className="modal-body">
             <form id="form" >
             <div className="form-row"> 
@@ -43,7 +43,7 @@ return(
                 </div>
             </form>
         </div>
-        <ModalFooter/>
+        <ModalFooter cambiarModal = {cambiarModal}/>
         </div>
     </div>
 </div>

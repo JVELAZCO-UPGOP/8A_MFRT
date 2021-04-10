@@ -26,7 +26,7 @@ this.setState({mostrarModal: !this.state.mostrarModal})
             <Nav/>
             <ActionsMenu cambiarModal = {this.cambiarModal}/>
             <Tabla/>
-            {this.state.mostrarModal && <Modal/>}
+            {this.state.mostrarModal && <Modal cambiarModal = {this.cambiarModal}/>}
         </div>
         </>
         );
