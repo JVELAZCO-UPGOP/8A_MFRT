@@ -15,7 +15,7 @@ class Pagina extends Component {
     }
 
     cambiarModal = () => {
-this.setState({mostrarModal: !this.state.mostrarModal})
+    this.setState({mostrarModal: !this.state.mostrarModal})
     };
 
     listar = async () => {
@@ -27,6 +27,8 @@ this.setState({mostrarModal: !this.state.mostrarModal})
     componentDidMount(){
         this.listar();
     }
+
+
 //Codigo del componente
 
 //el método render siempre debe ir de ultimo
@@ -37,7 +39,7 @@ this.setState({mostrarModal: !this.state.mostrarModal})
         <div className="container">    
             <Nav/>
             <ActionsMenu cambiarModal = {this.cambiarModal} titulo={titulo}/>
-            <Tabla/>
+            <Tabla entidades={this.state.entidades}/>
             {this.state.mostrarModal && <Modal cambiarModal = {this.cambiarModal}/>}
         </div>
         </>

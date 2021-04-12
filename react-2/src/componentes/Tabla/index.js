@@ -5,30 +5,28 @@ import "./Tabla.css";
 
 
 
-function Tabla(){
-    const [mascotas, setMascotas] = useState([
-        {
-            tipo: "Perro",
-            nombre: "Andy",
-            propietario: "Monica",
-        },
-        {
-            tipo: "Perro",
-            nombre: "Andy",
-            propietario: "Monica",
-        },
-    ]);
-    const columnas = mascotas.length > 0 ? Object.keys(mascotas[0]) : [];
+function Tabla({
+    entidades = [],
+    editarEntidad = () => {},
+    eliminarEntidad = () => {},
+    columnas = [],
+}) {
     return (
-        <table className="table table-striped table-hover ">
-            <Encabezado columnas = {columnas}/>
-            <tbody id="lista-mascotas" >
-            {mascotas.map(
-            (mascota, index) => (
-            <Fila mascota={mascota} index={index}/>
+    <table className="table table-stripped table-hover">
+        <Encabezado columnas={columnas} />
+        <tbody id="lista-mascotas">
+        {entidades.map((entidad, index) => (
+            <Fila
+            key={`fila-${index}`}
+            index={index}
+            entidad={entidad}
+            editarEntidad={editarEntidad}
+            eliminarEntidad={eliminarEntidad}
+            columnas={columnas}
+            />
         ))}
         </tbody>
-        </table>
+    </table>
     );
 }
 export default Tabla;
