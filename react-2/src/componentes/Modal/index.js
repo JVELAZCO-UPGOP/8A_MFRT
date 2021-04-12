@@ -19,7 +19,7 @@ const propietario =[
     {valor:"Vince", etiqueta:"Vince"},
     ];
     
-function Modal({cambiarModal = () =>{} }){
+function Modal({cambiarModal = () =>{}, manejarInput = () =>{} }){
 return(
     <>
     <div className="modal" >
@@ -30,15 +30,15 @@ return(
             <form id="form" >
             <div className="form-row"> 
                 <div className="col">
-            <Select options={TiposMascota} nombreCampo= "Tipo animal"/>
+            <Select options={TiposMascota} onChange={manejarInput} nombreCampo= "Tipo animal"/>
                 </div>
             </div>
                 <div className="form-row"> 
                 <div className="col">
-                <Input tipo="text" nombreCampo="nombre"/>
+                <Input tipo="text" onInput={manejarInput} nombreCampo="nombre"/>
                 </div>
                     <div className="col">
-                    <Select options={propietario} nombreCampo= "dueño"/>
+                    <Select options={propietario} nombreCampo= "dueño" onChange={manejarInput}/>
                     </div>
                 </div>
             </form>

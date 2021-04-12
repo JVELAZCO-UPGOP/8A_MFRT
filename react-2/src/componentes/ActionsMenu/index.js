@@ -1,8 +1,11 @@
 import React, {useState} from "react";
 import "./ActionsMenu.css";
-import Alert from "../Alert";
 
-function ActionsMenu({cambiarModal = () => {}, titulo}){
+
+function ActionsMenu({
+    cambiarModal = () => {}, 
+    titulo, 
+    }){
     return (
         <div className="actions-menu">
             <h1>{titulo}</h1>

@@ -3,7 +3,7 @@ import Nav from "./componentes/Nav";
 import ActionsMenu from "./componentes/ActionsMenu";
 import Tabla from "./componentes/Tabla";
 import Modal from "./componentes/Modal";
-import {listarEntidad} from "./servicio";
+import {listarEntidad, crearEditarEntidad} from "./servicio";
 
 class Pagina extends Component {
     constructor(props){
@@ -11,6 +11,7 @@ class Pagina extends Component {
         this.state = {
         mostrarModal: false,
         entidades: [],
+        objeto: {},
         };
     }
 
@@ -24,6 +25,14 @@ class Pagina extends Component {
         this.setState({entidades});
     };
 
+    manejarInput = (evento) => {
+        evento.persist();
+        console.log({evento});
+    }
+
+    crearEntidad(){
+
+    }
     componentDidMount(){
         this.listar();
     }
@@ -38,9 +47,16 @@ class Pagina extends Component {
         <>
         <div className="container">    
             <Nav/>
-            <ActionsMenu cambiarModal = {this.cambiarModal} titulo={titulo}/>
+            <ActionsMenu 
+            cambiarModal = {this.cambiarModal} 
+            titulo={titulo}/>
             <Tabla entidades={this.state.entidades}/>
-            {this.state.mostrarModal && <Modal cambiarModal = {this.cambiarModal}/>}
+            {this.state.mostrarModal && 
+            (<Modal 
+            cambiarModal = {this.cambiarModal} 
+            manejarInput={this.manejarInput} 
+            
+            />)}
         </div>
         </>
         );
