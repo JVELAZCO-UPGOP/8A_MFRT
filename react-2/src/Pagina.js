@@ -26,9 +26,12 @@ class Pagina extends Component {
     };
 
     manejarInput = (evento) => {
-        evento.persist();
-        console.log({evento});
-    }
+        const {target: {value, name},
+        } = evento;
+        let {objeto} = this.state;
+        objeto = {...objeto, [name]: value};
+        this.setState({objeto});
+    };
 
     crearEntidad(){
 

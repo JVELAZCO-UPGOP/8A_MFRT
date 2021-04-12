@@ -30,15 +30,15 @@ return(
             <form id="form" >
             <div className="form-row"> 
                 <div className="col">
-            <Select options={TiposMascota} onChange={manejarInput} nombreCampo= "Tipo animal"/>
+            <Select nombreCampo = "tipo" options={TiposMascota} onChange={manejarInput} placeholder= "Tipo Animal"/>
                 </div>
             </div>
                 <div className="form-row"> 
                 <div className="col">
-                <Input tipo="text" onInput={manejarInput} nombreCampo="nombre"/>
+                <Input nombreCampo = "nombre" tipo="text" onInput={manejarInput} placeholder="Nombre"/>
                 </div>
                     <div className="col">
-                    <Select options={propietario} nombreCampo= "dueño" onChange={manejarInput}/>
+                    <Select options={propietario} nombreCampo= "propietario" onChange={manejarInput} placeholder = "Propietario"/>
                     </div>
                 </div>
             </form>
