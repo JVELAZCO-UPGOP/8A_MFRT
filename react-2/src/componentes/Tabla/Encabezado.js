@@ -13,7 +13,7 @@ function Encabezado(props){
                 <th scope="col"></th>
                 </tr>
             </thead>
-    )
+    );
 }
 
 export default Encabezado;

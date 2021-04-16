@@ -19,7 +19,10 @@ const propietario =[
     {valor:"Vince", etiqueta:"Vince"},
     ];
     
-function Modal({cambiarModal = () =>{}, manejarInput = () =>{} }){
+function Modal({
+cambiarModal = () =>{}, 
+manejarInput = () =>{}, 
+crearEntidad = () =>{}, }){
 return(
     <>
     <div className="modal" >
@@ -43,7 +46,9 @@ return(
                 </div>
             </form>
         </div>
-        <ModalFooter cambiarModal = {cambiarModal}/>
+        <ModalFooter 
+        cambiarModal = {cambiarModal} 
+        crearEntidad={crearEntidad}/>
         </div>
     </div>
 </div>
