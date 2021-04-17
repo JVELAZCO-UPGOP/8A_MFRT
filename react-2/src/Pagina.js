@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Nav from "./componentes/Nav";
 import ActionsMenu from "./componentes/ActionsMenu";
 import Tabla from "./componentes/Tabla";
@@ -12,35 +12,44 @@ class Pagina extends Component {
         mostrarModal: false,
         entidades: [],
         objeto: {},
+        idObjeto:null,
+        method: "POST",
         };
     }
 
-    cambiarModal = () => {
-    this.setState({mostrarModal: !this.state.mostrarModal})
+    cambiarModal = (_evento, method = "POST") => {
+    this.setState({ mostrarModal: !this.state.mostrarModal, method })
     };
 
     listar = async () => {
-        const {entidad} = this.props;
-        const entidades  = await listarEntidad({entidad});
-        this.setState({entidades});
+        const { entidad } = this.props;
+        const entidades  = await listarEntidad({ entidad });
+        this.setState({ entidades });
     };
 
     manejarInput = (evento) => {
-        const {target: {value, name},
+        const { target: {value, name},
         } = evento;
-        let {objeto} = this.state;
+        let { objeto } = this.state;
         objeto = {...objeto, [name]: value};
-        this.setState({objeto});
+        this.setState({ objeto });
     };
 
     crearEntidad = async () => {
-        const {entidad} = this.props;
-        let {objeto} = this.state;
-        const method = "POST";
+        const { entidad } = this.props;
+        let { objeto, method } = this.state;
         await  crearEditarEntidad({entidad, objeto, method });
         this.cambiarModal();
         this.listar();
     };
+
+    editarEntidad = (_evento, index) => {
+        const objeto = {...this.state.entidades[index]};
+        this.setState({ objeto, idObjeto: index}, () =>{
+            this.cambiarModal(null, "PUT")
+        });
+    };
+
     componentDidMount(){
         this.listar();
     }
@@ -58,12 +67,13 @@ class Pagina extends Component {
             <ActionsMenu 
             cambiarModal = {this.cambiarModal} 
             titulo={titulo}/>
-            <Tabla entidades={this.state.entidades}/>
+            <Tabla entidades={this.state.entidades} editarEntidad={this.editarEntidad}/>
             {this.state.mostrarModal && 
             (<Modal 
             cambiarModal = {this.cambiarModal} 
             manejarInput={this.manejarInput} 
             crearEntidad={this.crearEntidad}
+            objeto = {this.state.objeto}
             />)}
         </div>
         </>

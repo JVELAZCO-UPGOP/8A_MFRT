@@ -5,7 +5,8 @@ function Input ({
     tipo = "text", 
     nombreCampo, 
     onInput = () => {}, 
-    placeholder, 
+    placeholder,
+    value = "", 
 }){
     return(
     <input 
@@ -13,7 +14,8 @@ function Input ({
     name={nombreCampo} 
     className="form-control" 
     placeholder={placeholder}
-    onInput={onInput} />
+    onInput={onInput}
+    defaultValue = {value} />
     );
 }
 export default Input;

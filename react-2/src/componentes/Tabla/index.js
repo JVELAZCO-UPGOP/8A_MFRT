@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Encabezado from "./Encabezado";
 import Fila from "./Fila";
 import "./Tabla.css";
