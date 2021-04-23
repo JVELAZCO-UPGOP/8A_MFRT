@@ -1,24 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Nav.css";
 import Search from "../Search";
 
 function Nav() {
     return ( 
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand" href="#">Veterinaria</a>
+            <Link className="navbar-brand" to = "/">Veterinaria</Link>
             <div className="navbar-right" id="navbarColor01">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="/index.html">Mascotas<span class="sr-only">(current)</span></a>
+                        <Link className="nav-link" to="/index">Mascotas<span class="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/veterinarios.html">Veterinarios</a>
+                        <Link className="nav-link" to="/veterinarios">Veterinarios</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/consultas.html">Consultas</a>
+                        <Link className="nav-link" to="/consultas">Consultas</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/Dueños.html">Dueños</a>
+                        <Link className="nav-link" to="/Dueños">Dueños</Link>
                     </li>
                 </ul>
                 <Search/>
