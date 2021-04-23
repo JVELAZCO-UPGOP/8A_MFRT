@@ -10,7 +10,7 @@ function Nav() {
             <div className="navbar-right" id="navbarColor01">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <Link className="nav-link" to="/index">Mascotas<span class="sr-only">(current)</span></Link>
+                        <Link className="nav-link" to="/">Mascotas<span class="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/veterinarios">Veterinarios</Link>
