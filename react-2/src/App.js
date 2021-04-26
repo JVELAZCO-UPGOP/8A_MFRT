@@ -11,11 +11,23 @@ function App() {
     <div className="container">  
     <Nav/>
       <Switch>
-            <Route exact  path="/"> <Pagina titulo="Mascotas" entidad="mascotas" /></Route>
+            <Route exact  path="/" component={(props) => (
+            <Pagina {...props} titulo="Mascotas" entidad="mascotas" />
+          )}
+        />
             
-            <Route path="/veterinarios" > <Pagina titulo="Veterinarios" entidad="veterinarios" /></Route>
-            <Route path="/Dueños"> <Pagina titulo="Propietarios" entidad="propietarios" /></Route>
-            <Route path="/consultas" > <Pagina titulo="consultas" entidad="consultas" /></Route>
+            <Route path="/veterinarios" component={(props) => ( 
+            <Pagina {...props} titulo="Veterinarios" entidad="veterinarios" />
+            )}
+        />
+            <Route path="/Dueños" component={(props) => (
+            <Pagina {...props} titulo="Propietarios" entidad="propietarios" />
+            )}
+        />
+            <Route path="/consultas" component={(props) => ( 
+            <Pagina {...props} titulo="consultas" entidad="consultas" />
+            )}
+        />
       </Switch>
     </div>
   );

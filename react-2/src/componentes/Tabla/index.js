@@ -9,9 +9,9 @@ function Tabla({
     entidades = [],
     editarEntidad = () => {},
     eliminarEntidad = () => {},
-    //columnas = [],
+    columnas = [],
 }) {
-    const columnas  = entidades.length > 0 ? Object.keys(entidades[0]) : [];
+    
     return (
     <table className="table table-stripped table-hover">
         <Encabezado columnas={columnas} />
