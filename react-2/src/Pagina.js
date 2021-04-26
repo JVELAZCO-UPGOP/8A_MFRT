@@ -36,9 +36,16 @@ class Pagina extends Component {
         options: opcionesIniciales,
         };
     }
-
-    cambiarModal = (_evento, method = "POST") => {
-    this.setState({ mostrarModal: !this.state.mostrarModal, method })
+cambiarModal = (_evento, method = "POST", newState = {}) => {
+    let _newState = {
+        ...newState,
+        mostraModal: !this.state.mostraModal,
+        method,
+    };
+    if (method === "POST") {
+        _newState = { ..._newState, idObjeto: null, objeto: {} };
+    }
+    this.obtenerOpcionesBackend(_newState);
     };
 
     listar = async () => {
@@ -59,12 +66,11 @@ class Pagina extends Component {
         this.setState({ objeto });
     };
 
-    crearEntidad = async () => {
+    crearEntidad = async (_evento = null) => {
         const { entidad } = this.props;
         let { objeto, method, idObjeto } = this.state;
         await  crearEditarEntidad({entidad, objeto, method, idObjeto });
-        this.cambiarModal();
-        this.listar();
+        this.cambiarModal(_evento, "POST", {objeto: {}, idObjeto: null});
     };
 
     obtenerOpcionesBackend = async (newState) => {
