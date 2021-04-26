@@ -11,7 +11,6 @@ function Tabla({
     eliminarEntidad = () => {},
     columnas = [],
 }) {
-    
     return (
     <table className="table table-stripped table-hover">
         <Encabezado columnas={columnas} />

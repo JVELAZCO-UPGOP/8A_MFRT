@@ -24,6 +24,7 @@ cambiarModal = () =>{},
 manejarInput = () =>{}, 
 crearEntidad = () =>{}, 
 objeto = {},
+children = [],
 }){
 return(
     <>
@@ -34,9 +35,7 @@ return(
         <div className="modal-body">
             <form id="form" >
             <div className="form-row"> 
-                <div className="col">
-            <Select nombreCampo = "tipo" options={TiposMascota} onChange={manejarInput} placeholder= "Tipo Animal" value ={objeto.tipo}/>
-                </div>
+                {children}
             </div>
                 <div className="form-row"> 
                 <div className="col">

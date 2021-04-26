@@ -2,7 +2,26 @@ import React, { Component } from "react";
 import ActionsMenu from "./componentes/ActionsMenu";
 import Tabla from "./componentes/Tabla";
 import Modal from "./componentes/Modal";
-import {listarEntidad, crearEditarEntidad, eliminarEntidad} from "./servicio";
+import {listarEntidad, crearEditarEntidad, eliminarEntidad, obtenerUno,} from "./servicio";
+import ComponenteCampo from "./componentes/ComponenteCampo";
+
+const opcionesIniciales = {
+    tipo: [
+        { valor: "Perro", etiqueta: "Perro" },
+        { valor: "Gato", etiqueta: "Gato" },
+        { valor: "Pájaro", etiqueta: "Pájaro" },
+        { valor: "Otro", etiqueta: "Otro" },
+    ],
+    diagnostico: [
+        { valor: "Prurito de piel (sarna)", etiqueta: "Prurito de piel (sarna)" },
+        { valor: "Moquillo", etiqueta: "Moquillo" },
+        { valor: "Trauma cefálico", etiqueta: "Trauma cefálico" },
+        { valor: "Parvovirosis", etiqueta: "Parvovirosis" },
+    ],
+    mascota: [],
+    veterinario: [],
+    propietario: [],
+};
 
 class Pagina extends Component {
     constructor(props){
@@ -14,6 +33,7 @@ class Pagina extends Component {
         idObjeto:null,
         method: "POST",
         columnas: [],
+        options: opcionesIniciales,
         };
     }
 
@@ -62,7 +82,6 @@ class Pagina extends Component {
     };
 
     componentDidMount(){
-        //console.log(this.props)
         this.listar();
     }
 
@@ -72,6 +91,7 @@ class Pagina extends Component {
 //el método render siempre debe ir de ultimo
     render (){
         const {titulo = "Pagina sin titulo"} = this.props;
+        const { columnas, idObjeto, entidades, objeto, options } = this.state;
     return (
         <>
             
@@ -82,7 +102,7 @@ class Pagina extends Component {
             entidades={this.state.entidades} 
             editarEntidad={this.editarEntidad} 
             eliminarEntidad ={this.eliminarEntidad}
-            columnas = {this.state.columnas}
+            columnas = {columnas}
             />
             {this.state.mostrarModal && 
             (<Modal 
@@ -90,7 +110,19 @@ class Pagina extends Component {
             manejarInput={this.manejarInput} 
             crearEntidad={this.crearEntidad}
             objeto = {this.state.objeto}
-            />)}
+            >
+
+            {columnas.map((columna, index) => (
+            <ComponenteCampo
+                key={index}
+                manejarInput={this.manejarInput}
+                objeto={objeto}
+                nombreCampo={columna}
+                options={options}
+            />
+            ))}
+            </Modal>
+            )}
         </>
         );
     }  
