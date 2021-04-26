@@ -11,9 +11,9 @@ function ComponenteCampo({
     switch (nombreCampo) {
         case "tipo":
         case "mascota":
-        case "veterinaria":
+        case "veterinario":
         case "diagnostico":
-        case "dueno":
+        case "propietario":
         return (
             <div className="col">
             {options[nombreCampo].length > 0 ? (
