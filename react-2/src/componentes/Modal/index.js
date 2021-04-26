@@ -5,25 +5,9 @@ import "./Modal.css";
 
 
 
-const TiposMascota = [
-    {valor:"Perro", etiqueta:"Perro"},
-    {valor:"Gato", etiqueta:"Gato" },
-    {valor:"Pájaro", etiqueta:"Pájaro"},
-    {valor:"Otro", etiqueta:"Otro"},
-    ];
-const propietario =[
-    {valor:"Verito", etiqueta:"Verito"},
-    {valor:"Monica", etiqueta:"Monica" },
-    {valor:"Rafa", etiqueta:"Rafa"},
-    {valor:"Daniel", etiqueta:"Daniel"},
-    {valor:"Vince", etiqueta:"Vince"},
-    ];
-    
 function Modal({
 cambiarModal = () =>{}, 
-manejarInput = () =>{}, 
 crearEntidad = () =>{}, 
-objeto = {},
 children = [],
 }){
 return(

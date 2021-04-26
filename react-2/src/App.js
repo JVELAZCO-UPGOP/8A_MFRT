@@ -25,7 +25,7 @@ function App() {
             )}
         />
             <Route path="/consultas" component={(props) => ( 
-            <Pagina {...props} titulo="consultas" entidad="consultas" />
+            <Pagina {...props} titulo="Consultas" entidad="consultas" />
             )}
         />
       </Switch>

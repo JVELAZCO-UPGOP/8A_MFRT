@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Input from "../Input";
 import Select from "../Select";
 
+
+
 function ComponenteCampo({
     manejarInput = () => {},
     objeto = {},
